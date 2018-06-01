@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_client_php_backend/pages/splash_page.dart';
 
 void main() => runApp(new FlutterClientPHPBackendApp());
 
@@ -11,14 +12,7 @@ class FlutterClientPHPBackendApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new Scaffold(
-        body: new Center(
-          child: new Text(
-            "Hello Flutter",
-            style: new TextStyle(fontSize: 40.0),
-          ),
-        ),
-      ),
+      home: new SplashPage(),
     );
   }
 }
