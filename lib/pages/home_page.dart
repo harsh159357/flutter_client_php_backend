@@ -1,13 +1,30 @@
+/*
+ * Copyright 2018 Harsh Sharma
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_client_php_backend/customviews/progress_dialog.dart';
+import 'package:flutter_client_php_backend/futures/app_futures.dart';
 import 'package:flutter_client_php_backend/models/User.dart';
+import 'package:flutter_client_php_backend/models/base/EventObject.dart';
 import 'package:flutter_client_php_backend/pages/splash_page.dart';
 import 'package:flutter_client_php_backend/utils/app_shared_preferences.dart';
 import 'package:flutter_client_php_backend/utils/constants.dart';
-import 'package:flutter_client_php_backend/customviews/progress_dialog.dart';
-import 'package:flutter_client_php_backend/models/base/EventObject.dart';
-import 'package:flutter_client_php_backend/futures/app_futures.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,6 +42,8 @@ class HomePageState extends State<HomePage> {
   TextEditingController newPasswordController =
       new TextEditingController(text: "");
 
+//------------------------------------------------------------------------------
+
   @override
   Future<void> didChangeDependencies() async {
     super.didChangeDependencies();
@@ -33,6 +52,8 @@ class HomePageState extends State<HomePage> {
     }
   }
 
+//------------------------------------------------------------------------------
+
   Future<void> initUserProfile() async {
     User up = await AppSharedPreferences.getUserProfile();
     setState(() {
@@ -40,8 +61,12 @@ class HomePageState extends State<HomePage> {
     });
   }
 
+//------------------------------------------------------------------------------
+
   static ProgressDialog progressDialog = ProgressDialog
       .getProgressDialog(ProgressDialogTitles.USER_CHANGE_PASSWORD);
+
+//------------------------------------------------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +78,8 @@ class HomePageState extends State<HomePage> {
     );
   }
 
+//------------------------------------------------------------------------------
+
   void _logoutFromTheApp() {
     AppSharedPreferences.clear();
     setState(() {
@@ -62,6 +89,8 @@ class HomePageState extends State<HomePage> {
       );
     });
   }
+
+//------------------------------------------------------------------------------
 
   Widget homeText() {
     return Container(
@@ -134,6 +163,8 @@ class HomePageState extends State<HomePage> {
         ));
   }
 
+//------------------------------------------------------------------------------
+
   Widget _logOutDialog() {
     return new AlertDialog(
       title: new Text(
@@ -166,6 +197,8 @@ class HomePageState extends State<HomePage> {
       ],
     );
   }
+
+//------------------------------------------------------------------------------
 
   Widget _changePasswordDialog() {
     return new AlertDialog(
@@ -254,6 +287,8 @@ class HomePageState extends State<HomePage> {
       ],
     );
   }
+
+//------------------------------------------------------------------------------
 
   void _changePassword(
       String emailID, String oldPassword, String newPassword) async {

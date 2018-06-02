@@ -1,12 +1,29 @@
+/*
+ * Copyright 2018 Harsh Sharma
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
-import 'package:flutter_client_php_backend/models/base/EventObject.dart';
 import 'package:flutter_client_php_backend/models/ApiRequest.dart';
 import 'package:flutter_client_php_backend/models/ApiResponse.dart';
-import 'package:flutter_client_php_backend/utils/constants.dart';
 import 'package:flutter_client_php_backend/models/User.dart';
+import 'package:flutter_client_php_backend/models/base/EventObject.dart';
+import 'package:flutter_client_php_backend/utils/constants.dart';
+import 'package:http/http.dart' as http;
 
 ///////////////////////////////////////////////////////////////////////////////
 Future<EventObject> loginUser(String emailId, String password) async {
@@ -17,7 +34,7 @@ Future<EventObject> loginUser(String emailId, String password) async {
   apiRequest.user = user;
 
   try {
-    final encoding = "application/octet-stream";
+    final encoding = APIConstants.OCTET_STREAM_ENCODING;
     final response = await http.post(APIConstants.API_BASE_URL,
         body: json.encode(apiRequest.toJson()),
         encoding: Encoding.getByName(encoding));
@@ -26,7 +43,7 @@ Future<EventObject> loginUser(String emailId, String password) async {
           response.body != null) {
         final responseJson = json.decode(response.body);
         ApiResponse apiResponse = ApiResponse.fromJson(responseJson);
-        if (apiResponse.result == "success") {
+        if (apiResponse.result == APIOperations.SUCCESS) {
           return new EventObject(
               id: EventConstants.LOGIN_USER_SUCCESSFUL,
               object: apiResponse.user);
@@ -54,7 +71,7 @@ Future<EventObject> registerUser(
   apiRequest.user = user;
 
   try {
-    final encoding = "application/octet-stream";
+    final encoding = APIConstants.OCTET_STREAM_ENCODING;
     final response = await http.post(APIConstants.API_BASE_URL,
         body: json.encode(apiRequest.toJson()),
         encoding: Encoding.getByName(encoding));
@@ -63,10 +80,10 @@ Future<EventObject> registerUser(
           response.body != null) {
         final responseJson = json.decode(response.body);
         ApiResponse apiResponse = ApiResponse.fromJson(responseJson);
-        if (apiResponse.result == "success") {
+        if (apiResponse.result == APIOperations.SUCCESS) {
           return new EventObject(
               id: EventConstants.USER_REGISTRATION_SUCCESSFUL, object: null);
-        } else if (apiResponse.result == "failure") {
+        } else if (apiResponse.result == APIOperations.FAILURE) {
           return new EventObject(id: EventConstants.USER_ALREADY_REGISTERED);
         } else {
           return new EventObject(
@@ -95,7 +112,7 @@ Future<EventObject> changePassword(
   apiRequest.user = user;
 
   try {
-    final encoding = "application/octet-stream";
+    final encoding = APIConstants.OCTET_STREAM_ENCODING;
     final response = await http.post(APIConstants.API_BASE_URL,
         body: json.encode(apiRequest.toJson()),
         encoding: Encoding.getByName(encoding));
@@ -104,10 +121,10 @@ Future<EventObject> changePassword(
           response.body != null) {
         final responseJson = json.decode(response.body);
         ApiResponse apiResponse = ApiResponse.fromJson(responseJson);
-        if (apiResponse.result == "success") {
+        if (apiResponse.result == APIOperations.SUCCESS) {
           return new EventObject(
               id: EventConstants.CHANGE_PASSWORD_SUCCESSFUL, object: null);
-        } else if (apiResponse.result == "failure") {
+        } else if (apiResponse.result == APIOperations.FAILURE) {
           return new EventObject(id: EventConstants.INVALID_OLD_PASSWORD);
         } else {
           return new EventObject(

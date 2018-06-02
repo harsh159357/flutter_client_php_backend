@@ -1,11 +1,26 @@
+/*
+ * Copyright 2018 Harsh Sharma
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 import 'package:flutter/material.dart';
 import 'package:flutter_client_php_backend/customviews/progress_dialog.dart';
 import 'package:flutter_client_php_backend/futures/app_futures.dart';
 import 'package:flutter_client_php_backend/models/base/EventObject.dart';
-import 'package:flutter_client_php_backend/utils/constants.dart';
-import 'package:flutter_client_php_backend/utils/app_shared_preferences.dart';
-import 'package:flutter_client_php_backend/pages/home_page.dart';
 import 'package:flutter_client_php_backend/pages/login_page.dart';
+import 'package:flutter_client_php_backend/utils/constants.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -18,14 +33,14 @@ class RegisterPageState extends State<RegisterPage> {
   ProgressDialog progressDialog =
       ProgressDialog.getProgressDialog(ProgressDialogTitles.USER_REGISTER);
 
-  TextEditingController nameController =
-      new TextEditingController(text: "Testing");
+  TextEditingController nameController = new TextEditingController(text: "");
 
-  TextEditingController emailController =
-      new TextEditingController(text: "testing@testing.com");
+  TextEditingController emailController = new TextEditingController(text: "");
 
   TextEditingController passwordController =
-      new TextEditingController(text: "testing");
+      new TextEditingController(text: "");
+
+//------------------------------------------------------------------------------
 
   bool isValidEmail(String em) {
     String p =
@@ -36,6 +51,7 @@ class RegisterPageState extends State<RegisterPage> {
     return regExp.hasMatch(em);
   }
 
+//------------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -46,6 +62,7 @@ class RegisterPageState extends State<RegisterPage> {
         ));
   }
 
+//------------------------------------------------------------------------------
   Widget _loginContainer() {
     return new Container(
         child: new ListView(
@@ -65,6 +82,7 @@ class RegisterPageState extends State<RegisterPage> {
     ));
   }
 
+//------------------------------------------------------------------------------
   Widget _appIcon() {
     return new Container(
       decoration: new BoxDecoration(color: Colors.blue[400]),
@@ -77,6 +95,7 @@ class RegisterPageState extends State<RegisterPage> {
     );
   }
 
+//------------------------------------------------------------------------------
   Widget _formContainer() {
     return new Container(
       child: new Form(
@@ -101,6 +120,7 @@ class RegisterPageState extends State<RegisterPage> {
     );
   }
 
+//------------------------------------------------------------------------------
   Widget _nameContainer() {
     return new Container(
         child: new TextFormField(
@@ -116,6 +136,7 @@ class RegisterPageState extends State<RegisterPage> {
         margin: EdgeInsets.only(bottom: 5.0));
   }
 
+//------------------------------------------------------------------------------
   Widget _emailContainer() {
     return new Container(
         child: new TextFormField(
@@ -131,6 +152,7 @@ class RegisterPageState extends State<RegisterPage> {
         margin: EdgeInsets.only(bottom: 20.0));
   }
 
+//------------------------------------------------------------------------------
   Widget _passwordContainer() {
     return new Container(
         child: new TextFormField(
@@ -148,6 +170,7 @@ class RegisterPageState extends State<RegisterPage> {
         margin: EdgeInsets.only(bottom: 35.0));
   }
 
+//------------------------------------------------------------------------------
   Widget _registerButtonContainer() {
     return new Container(
         width: double.infinity,
@@ -164,6 +187,7 @@ class RegisterPageState extends State<RegisterPage> {
         margin: EdgeInsets.only(bottom: 30.0));
   }
 
+//------------------------------------------------------------------------------
   Widget _loginNowLabel() {
     return new GestureDetector(
       onTap: _goToLoginScreen,
@@ -176,6 +200,7 @@ class RegisterPageState extends State<RegisterPage> {
     );
   }
 
+//------------------------------------------------------------------------------
   void _registerButtonAction() {
     if (nameController.text == "") {
       globalKey.currentState.showSnackBar(new SnackBar(
@@ -217,6 +242,7 @@ class RegisterPageState extends State<RegisterPage> {
         nameController.text, emailController.text, passwordController.text);
   }
 
+//------------------------------------------------------------------------------
   void _registerUser(String name, String emailId, String password) async {
     EventObject eventObject = await registerUser(name, emailId, password);
     switch (eventObject.id) {
@@ -264,10 +290,13 @@ class RegisterPageState extends State<RegisterPage> {
     }
   }
 
+//------------------------------------------------------------------------------
+
   void _goToLoginScreen() {
     Navigator.pushReplacement(
       context,
       new MaterialPageRoute(builder: (context) => new LoginPage()),
     );
   }
+//------------------------------------------------------------------------------
 }
