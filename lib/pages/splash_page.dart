@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_client_php_backend/utils/app_shared_preferences.dart';
+import 'package:flutter_client_php_backend/pages/login_page.dart';
 import 'dart:async';
 
 class SplashPage extends StatefulWidget {
@@ -24,7 +26,7 @@ class SplashPageState extends State<SplashPage> {
         child: Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: new BoxDecoration(color: Colors.purple[900]),
+            decoration: new BoxDecoration(color: Colors.blue[400]),
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,12 +37,12 @@ class SplashPageState extends State<SplashPage> {
                   height: 200.0,
                   width: 200.0,
                   image: new AssetImage("assets/images/ic_launcher.png"),
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fill,
                 )),
                 new Container(
                   margin: EdgeInsets.only(top: 20.0),
                   child: new Text(
-                    "Android Client Php Backend",
+                    "Flutter Client Php Backend",
                     style: new TextStyle(color: Colors.white, fontSize: 24.0),
                   ),
                 ),
@@ -49,6 +51,23 @@ class SplashPageState extends State<SplashPage> {
   }
 
   void _handleTapEvent() async {
-    //Do Something Here
+    bool isLoggedIn = await AppSharedPreferences.isUserLoggedIn();
+    if (this.mounted) {
+      setState(() {
+        if (isLoggedIn != null && isLoggedIn) {
+/*
+          Navigator.pushReplacement(
+            context,
+            new MaterialPageRoute(builder: (context) => new HomePage()),
+          );
+*/
+        } else {
+          Navigator.pushReplacement(
+            context,
+            new MaterialPageRoute(builder: (context) => new LoginPage()),
+          );
+        }
+      });
+    }
   }
 }

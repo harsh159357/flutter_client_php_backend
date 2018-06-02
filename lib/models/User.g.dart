@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'User.dart';
 
 // **************************************************************************
 // Generator: JsonSerializableGenerator
@@ -16,11 +16,17 @@ User _$UserFromJson(Map<String, dynamic> json) => new User(
 
 abstract class _$UserSerializerMixin {
   String get name;
+
   String get email;
+
   String get unique_id;
+
   String get password;
+
   String get old_password;
+
   String get new_password;
+
   Map<String, dynamic> toJson() => <String, dynamic>{
         'name': name,
         'email': email,
