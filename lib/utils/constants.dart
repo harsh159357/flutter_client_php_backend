@@ -1,23 +1,27 @@
 ///////////////////////////////////////////////////////////////////////////////
 class APIConstants {
-  static const String API_BASE_URL  = "http://hafinse.pe.hu";
+  static const String API_BASE_URL = "http://hafinse.pe.hu";
 }
+
 ///////////////////////////////////////////////////////////////////////////////
 class APIOperations {
-  static const String LOGIN  = "login";
-  static const String REGISTER  = "register";
-  static const String CHANGE_PASSWORD  = "chgPass";
+  static const String LOGIN = "login";
+  static const String REGISTER = "register";
+  static const String CHANGE_PASSWORD = "chgPass";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 class EventConstants {
   static const int NO_INTERNET_CONNECTION = 0;
+
 ///////////////////////////////////////////////////////////////////////////////
   static const int LOGIN_USER_SUCCESSFUL = 500;
   static const int LOGIN_USER_UN_SUCCESSFUL = 501;
+
 ///////////////////////////////////////////////////////////////////////////////
   static const int USER_REGISTRATION_SUCCESSFUL = 502;
   static const int USER_REGISTRATION_UN_SUCCESSFUL = 503;
+
 ///////////////////////////////////////////////////////////////////////////////
   static const int CHANGE_PASSWORD_SUCCESSFUL = 504;
   static const int CHANGE_PASSWORD_UN_SUCCESSFUL = 505;
@@ -61,6 +65,8 @@ class Texts {
   static const String REGISTER_NOW = "Not Registered ? Register Now !";
   static const String LOGIN = "LOGIN";
   static const String PASSWORD = "Password";
+  static const String CHANGE_PASSWORD = "CHANGE PASSWORD";
+  static const String LOGOUT = "LOGOUT";
   static const String EMAIL = "Email";
 }
 ///////////////////////////////////////////////////////////////////////////////
