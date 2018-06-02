@@ -28,7 +28,7 @@ Future<EventObject> loginUser(String emailId, String password) async {
         ApiResponse apiResponse = ApiResponse.fromJson(responseJson);
         if (apiResponse.result == "success") {
           return new EventObject(
-              id: EventConstants.LOGIN_USER_SUCCESSFUL, object: apiResponse);
+              id: EventConstants.LOGIN_USER_SUCCESSFUL, object: apiResponse.user);
         } else {
           return new EventObject(id: EventConstants.LOGIN_USER_UN_SUCCESSFUL);
         }

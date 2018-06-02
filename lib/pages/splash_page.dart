@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_client_php_backend/utils/app_shared_preferences.dart';
 import 'package:flutter_client_php_backend/pages/login_page.dart';
+import 'package:flutter_client_php_backend/pages/home_page.dart';
 import 'dart:async';
 
 class SplashPage extends StatefulWidget {
@@ -55,12 +56,10 @@ class SplashPageState extends State<SplashPage> {
     if (this.mounted) {
       setState(() {
         if (isLoggedIn != null && isLoggedIn) {
-/*
           Navigator.pushReplacement(
             context,
             new MaterialPageRoute(builder: (context) => new HomePage()),
           );
-*/
         } else {
           Navigator.pushReplacement(
             context,

@@ -4,6 +4,7 @@ import 'package:flutter_client_php_backend/futures/app_futures.dart';
 import 'package:flutter_client_php_backend/models/base/EventObject.dart';
 import 'package:flutter_client_php_backend/utils/constants.dart';
 import 'package:flutter_client_php_backend/utils/app_shared_preferences.dart';
+import 'package:flutter_client_php_backend/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -201,11 +202,9 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void _goToHomeScreen() {
-/*
     Navigator.pushReplacement(
       context,
       new MaterialPageRoute(builder: (context) => new HomePage()),
     );
-*/
   }
 }
