@@ -5,24 +5,36 @@ import 'package:flutter_client_php_backend/models/base/EventObject.dart';
 import 'package:flutter_client_php_backend/utils/constants.dart';
 import 'package:flutter_client_php_backend/utils/app_shared_preferences.dart';
 import 'package:flutter_client_php_backend/pages/home_page.dart';
-import 'package:flutter_client_php_backend/pages/register_page.dart';
+import 'package:flutter_client_php_backend/pages/login_page.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  createState() => new LoginPageState();
+  createState() => new RegisterPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class RegisterPageState extends State<RegisterPage> {
   final globalKey = new GlobalKey<ScaffoldState>();
 
   ProgressDialog progressDialog =
-      ProgressDialog.getProgressDialog(ProgressDialogTitles.USER_LOG_IN);
+      ProgressDialog.getProgressDialog(ProgressDialogTitles.USER_REGISTER);
+
+  TextEditingController nameController =
+      new TextEditingController(text: "Testing");
 
   TextEditingController emailController =
-      new TextEditingController(text: "flutter@flutter.com");
+      new TextEditingController(text: "testing@testing.com");
 
   TextEditingController passwordController =
-      new TextEditingController(text: "flutter");
+      new TextEditingController(text: "testing");
+
+  bool isValidEmail(String em) {
+    String p =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+
+    RegExp regExp = new RegExp(p);
+
+    return regExp.hasMatch(em);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,18 +85,35 @@ class LoginPageState extends State<LoginPage> {
               child: new Column(
                 children: <Widget>[
 //------------------------------------------------------------------------------
+                  _nameContainer(),
+//------------------------------------------------------------------------------
                   _emailContainer(),
 //------------------------------------------------------------------------------
                   _passwordContainer(),
 //------------------------------------------------------------------------------
-                  _loginButtonContainer(),
+                  _registerButtonContainer(),
 //------------------------------------------------------------------------------
-                  _registerNowLabel(),
+                  _loginNowLabel(),
 //------------------------------------------------------------------------------
                 ],
               ))),
       margin: EdgeInsets.only(top: 20.0, left: 25.0, right: 25.0),
     );
+  }
+
+  Widget _nameContainer() {
+    return new Container(
+        child: new TextFormField(
+            controller: nameController,
+            decoration: InputDecoration(
+                suffixIcon: new Icon(
+                  Icons.face,
+                  color: Colors.pink,
+                ),
+                labelText: Texts.NAME,
+                labelStyle: TextStyle(fontSize: 18.0)),
+            keyboardType: TextInputType.text),
+        margin: EdgeInsets.only(bottom: 5.0));
   }
 
   Widget _emailContainer() {
@@ -119,35 +148,56 @@ class LoginPageState extends State<LoginPage> {
         margin: EdgeInsets.only(bottom: 35.0));
   }
 
-  Widget _loginButtonContainer() {
+  Widget _registerButtonContainer() {
     return new Container(
         width: double.infinity,
         decoration: new BoxDecoration(color: Colors.blue[400]),
         child: new MaterialButton(
           textColor: Colors.white,
           padding: EdgeInsets.all(15.0),
-          onPressed: _loginButtonAction,
+          onPressed: _registerButtonAction,
           child: new Text(
-            Texts.LOGIN,
+            Texts.REGISTER,
             style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
           ),
         ),
         margin: EdgeInsets.only(bottom: 30.0));
   }
 
-  Widget _registerNowLabel() {
+  Widget _loginNowLabel() {
     return new GestureDetector(
-      onTap: _goToRegisterScreen,
+      onTap: _goToLoginScreen,
       child: new Container(
           child: new Text(
-            Texts.REGISTER_NOW,
+            Texts.LOGIN_NOW,
             style: TextStyle(fontSize: 18.0, color: Colors.pink),
           ),
           margin: EdgeInsets.only(bottom: 30.0)),
     );
   }
 
-  void _loginButtonAction() {
+  void _registerButtonAction() {
+    if (nameController.text == "") {
+      globalKey.currentState.showSnackBar(new SnackBar(
+        content: new Text(SnackBarText.ENTER_NAME),
+      ));
+      return;
+    }
+
+    if (emailController.text == "") {
+      globalKey.currentState.showSnackBar(new SnackBar(
+        content: new Text(SnackBarText.ENTER_EMAIL),
+      ));
+      return;
+    }
+
+    if (!isValidEmail(emailController.text)) {
+      globalKey.currentState.showSnackBar(new SnackBar(
+        content: new Text(SnackBarText.ENTER_VALID_MAIL),
+      ));
+      return;
+    }
+
     if (emailController.text == "") {
       globalKey.currentState.showSnackBar(new SnackBar(
         content: new Text(SnackBarText.ENTER_EMAIL),
@@ -163,30 +213,39 @@ class LoginPageState extends State<LoginPage> {
     }
     FocusScope.of(context).requestFocus(new FocusNode());
     progressDialog.showProgress();
-    _loginUser(emailController.text, passwordController.text);
+    _registerUser(
+        nameController.text, emailController.text, passwordController.text);
   }
 
-  void _loginUser(String id, String password) async {
-    EventObject eventObject = await loginUser(id, password);
+  void _registerUser(String name, String emailId, String password) async {
+    EventObject eventObject = await registerUser(name, emailId, password);
     switch (eventObject.id) {
-      case EventConstants.LOGIN_USER_SUCCESSFUL:
+      case EventConstants.USER_REGISTRATION_SUCCESSFUL:
         {
           setState(() {
-            AppSharedPreferences.setUserLoggedIn(true);
-            AppSharedPreferences.setUserProfile(eventObject.object);
             globalKey.currentState.showSnackBar(new SnackBar(
-              content: new Text(SnackBarText.LOGIN_SUCCESSFUL),
+              content: new Text(SnackBarText.REGISTER_SUCCESSFUL),
             ));
             progressDialog.hideProgress();
-            _goToHomeScreen();
+            _goToLoginScreen();
           });
         }
         break;
-      case EventConstants.LOGIN_USER_UN_SUCCESSFUL:
+      case EventConstants.USER_ALREADY_REGISTERED:
         {
           setState(() {
             globalKey.currentState.showSnackBar(new SnackBar(
-              content: new Text(SnackBarText.LOGIN_UN_SUCCESSFUL),
+              content: new Text(SnackBarText.USER_ALREADY_REGISTERED),
+            ));
+            progressDialog.hideProgress();
+          });
+        }
+        break;
+      case EventConstants.USER_REGISTRATION_UN_SUCCESSFUL:
+        {
+          setState(() {
+            globalKey.currentState.showSnackBar(new SnackBar(
+              content: new Text(SnackBarText.REGISTER_UN_SUCCESSFUL),
             ));
             progressDialog.hideProgress();
           });
@@ -205,17 +264,10 @@ class LoginPageState extends State<LoginPage> {
     }
   }
 
-  void _goToHomeScreen() {
+  void _goToLoginScreen() {
     Navigator.pushReplacement(
       context,
-      new MaterialPageRoute(builder: (context) => new HomePage()),
-    );
-  }
-
-  void _goToRegisterScreen() {
-    Navigator.pushReplacement(
-      context,
-      new MaterialPageRoute(builder: (context) => new RegisterPage()),
+      new MaterialPageRoute(builder: (context) => new LoginPage()),
     );
   }
 }

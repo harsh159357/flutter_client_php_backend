@@ -18,16 +18,16 @@ class HomePageState extends State<HomePage> {
   var logoutDialog = new AlertDialog(
     title: new Text(
       "Logout",
-      style: new TextStyle(color: Colors.cyan[500], fontSize: 20.0),
+      style: new TextStyle(color: Colors.blue[400], fontSize: 20.0),
     ),
     content: new Text(
       "Are you sure you want to Logout from the App",
-      style: new TextStyle(color: Colors.grey[500], fontSize: 20.0),
+      style: new TextStyle(color: Colors.grey, fontSize: 20.0),
     ),
     actions: <Widget>[
       new FlatButton(
         child: new Text("OK",
-            style: new TextStyle(color: Colors.cyan[500], fontSize: 20.0)),
+            style: new TextStyle(color: Colors.blue[400], fontSize: 20.0)),
         onPressed: () {
           AppSharedPreferences.clear();
           Navigator.pushReplacement(
@@ -38,7 +38,7 @@ class HomePageState extends State<HomePage> {
       ),
       new FlatButton(
         child: new Text("Cancel",
-            style: new TextStyle(color: Colors.cyan[500], fontSize: 20.0)),
+            style: new TextStyle(color: Colors.blue[400], fontSize: 20.0)),
         onPressed: () {
           Navigator.of(globalKey.currentContext).pop();
         },
@@ -65,10 +65,6 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       key: globalKey,
-      appBar: new AppBar(
-        centerTitle: true,
-        title: new Text("Home Page"),
-      ),
       body: homeText(),
     );
   }

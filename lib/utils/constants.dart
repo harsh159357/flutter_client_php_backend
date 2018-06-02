@@ -21,10 +21,11 @@ class EventConstants {
 ///////////////////////////////////////////////////////////////////////////////
   static const int USER_REGISTRATION_SUCCESSFUL = 502;
   static const int USER_REGISTRATION_UN_SUCCESSFUL = 503;
+  static const int USER_ALREADY_REGISTERED = 504;
 
 ///////////////////////////////////////////////////////////////////////////////
-  static const int CHANGE_PASSWORD_SUCCESSFUL = 504;
-  static const int CHANGE_PASSWORD_UN_SUCCESSFUL = 505;
+  static const int CHANGE_PASSWORD_SUCCESSFUL = 505;
+  static const int CHANGE_PASSWORD_UN_SUCCESSFUL = 506;
 ///////////////////////////////////////////////////////////////////////////////
 }
 
@@ -49,24 +50,28 @@ class ProgressDialogTitles {
 
 ///////////////////////////////////////////////////////////////////////////////
 class SnackBarText {
-///////////////////////////////////////////////////////////////////////////////
   static const String NO_INTERNET_CONNECTION = "No Internet Conenction";
-
-///////////////////////////////////////////////////////////////////////////////
   static const String LOGIN_SUCCESSFUL = "Login Successful";
   static const String LOGIN_UN_SUCCESSFUL = "Login Un Successful";
+  static const String REGISTER_SUCCESSFUL = "Register Successful";
+  static const String REGISTER_UN_SUCCESSFUL = "Register Un Successful";
+  static const String USER_ALREADY_REGISTERED = "User Already Registered";
   static const String ENTER_PASS = "Please Enter your Password";
   static const String ENTER_EMAIL = "Please Enter your Email Id";
-///////////////////////////////////////////////////////////////////////////////
+  static const String ENTER_VALID_MAIL = "Please Enter Valid Email Id";
+  static const String ENTER_NAME = "Please Enter your Name";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 class Texts {
   static const String REGISTER_NOW = "Not Registered ? Register Now !";
+  static const String LOGIN_NOW = "Already Registered ? Login Now !";
   static const String LOGIN = "LOGIN";
+  static const String REGISTER = "REGISTER";
   static const String PASSWORD = "Password";
   static const String CHANGE_PASSWORD = "CHANGE PASSWORD";
   static const String LOGOUT = "LOGOUT";
   static const String EMAIL = "Email";
+  static const String NAME = "Name";
 }
 ///////////////////////////////////////////////////////////////////////////////
