@@ -12,7 +12,39 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  static final globalKey = new GlobalKey<ScaffoldState>();
   User user;
+
+  var logoutDialog = new AlertDialog(
+    title: new Text(
+      "Logout",
+      style: new TextStyle(color: Colors.cyan[500], fontSize: 20.0),
+    ),
+    content: new Text(
+      "Are you sure you want to Logout from the App",
+      style: new TextStyle(color: Colors.grey[500], fontSize: 20.0),
+    ),
+    actions: <Widget>[
+      new FlatButton(
+        child: new Text("OK",
+            style: new TextStyle(color: Colors.cyan[500], fontSize: 20.0)),
+        onPressed: () {
+          AppSharedPreferences.clear();
+          Navigator.pushReplacement(
+            globalKey.currentContext,
+            new MaterialPageRoute(builder: (context) => new SplashPage()),
+          );
+        },
+      ),
+      new FlatButton(
+        child: new Text("Cancel",
+            style: new TextStyle(color: Colors.cyan[500], fontSize: 20.0)),
+        onPressed: () {
+          Navigator.of(globalKey.currentContext).pop();
+        },
+      ),
+    ],
+  );
 
   @override
   Future<void> didChangeDependencies() async {
@@ -32,6 +64,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      key: globalKey,
       appBar: new AppBar(
         centerTitle: true,
         title: new Text("Home Page"),
@@ -99,7 +132,10 @@ class HomePageState extends State<HomePage> {
               child: new MaterialButton(
                 textColor: Colors.white,
                 padding: EdgeInsets.all(15.0),
-                onPressed: _logoutFromTheApp,
+                onPressed: () {
+                  showDialog(
+                      context: globalKey.currentContext, child: logoutDialog);
+                },
                 child: new Text(
                   Texts.LOGOUT,
                   style: new TextStyle(
