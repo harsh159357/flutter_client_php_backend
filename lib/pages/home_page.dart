@@ -61,7 +61,7 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Container(
               child: new Text(
-                "Welcome : " + user.name,
+                "Welcome : " + ((user == null) ? "User Name" : user.name),
                 style: new TextStyle(color: Colors.pink, fontSize: 26.0),
               ),
               margin: EdgeInsets.only(bottom: 10.0),
@@ -69,14 +69,14 @@ class HomePageState extends State<HomePage> {
             new Container(
               margin: EdgeInsets.only(bottom: 10.0),
               child: new Text(
-                user.email,
+                ((user == null) ? "User Email" : user.email),
                 style: new TextStyle(color: Colors.grey, fontSize: 22.0),
               ),
             ),
             new Container(
               margin: EdgeInsets.only(bottom: 10.0),
               child: new Text(
-                user.unique_id,
+                ((user == null) ? "User Unique Id" : user.unique_id),
                 style: new TextStyle(color: Colors.grey, fontSize: 22.0),
               ),
             ),
