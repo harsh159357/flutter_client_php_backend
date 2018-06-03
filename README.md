@@ -42,6 +42,8 @@
 </div>
 <br/>
 
+**Its Android CounterPart [Click Here](https://github.com/harsh159357/android_client_php_backend)**
+
 License
 -------
 
