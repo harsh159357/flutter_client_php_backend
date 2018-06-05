@@ -36,16 +36,16 @@
     private $db = 'your_database';
     private $pass = 'your_password';
 
-## Not Interested in doing above steps just clone this repo and use it as it is already hosted on Free Web Host Hostinger [hafinse](https://hafinse.pe.hu)
+### Not Interested in doing above steps just clone this repo and use it as it is already hosted on Free Web Host Hostinger [hafinse](https://hafinse.pe.hu)
 
 
-## Things Implemented
+## Features Implemented
 * Splash
 * Login
 * Registration
 * Change Password
 
-## Things you will get learn through this project -
+## Things you can learn through this project -
 * Navigation Between Pages.
 * Performing Operations in Background Thread.
 * Network Requests.
@@ -64,9 +64,9 @@
 
 Check out the repo make a pull request, raise issues and give a star if it's helpful.
 
-## Its Android CounterPart [Click Here](https://github.com/harsh159357/android_client_php_backend)
+### Its Android CounterPart [Click Here](https://github.com/harsh159357/android_client_php_backend)
 
-## If you are aware of [Postman](https://www.getpostman.com/) you can use [Postman Collection](https://www.getpostman.com/collections/80394d2fc7c2aed05cc5) for Rest API used in this repo
+### If you are aware of [Postman](https://www.getpostman.com/) you can use [Postman Collection](https://www.getpostman.com/collections/80394d2fc7c2aed05cc5) for Rest API used in this repo
 
 ## Helping Hands for this project
 
@@ -84,9 +84,9 @@ Check out the repo make a pull request, raise issues and give a star if it's hel
 ### :heart: Found this project useful?
 If you found this project useful, then please consider giving it a :star: on Github and sharing it with your friends via social media.
 
-## Project Maintained By
+### Project Maintained By
 
-### Harsh Sharma
+## Harsh Sharma
 
 Android Developer
 
