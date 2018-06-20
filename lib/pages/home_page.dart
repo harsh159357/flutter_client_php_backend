@@ -206,48 +206,43 @@ class HomePageState extends State<HomePage> {
         "Change Password",
         style: new TextStyle(color: Colors.blue[400], fontSize: 20.0),
       ),
-      content: new ListView(
-        shrinkWrap: true,
-        children: <Widget>[
-          new Container(
-            child: new Form(
-                child: new Theme(
-                    data: new ThemeData(primarySwatch: Colors.pink),
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Container(
-                            child: new TextFormField(
-                              controller: oldPasswordController,
-                              decoration: InputDecoration(
-                                  suffixIcon: new Icon(
-                                    Icons.vpn_key,
-                                    color: Colors.pink,
-                                  ),
-                                  labelText: Texts.OLD_PASSWORD,
-                                  labelStyle: TextStyle(fontSize: 18.0)),
-                              keyboardType: TextInputType.text,
-                              obscureText: true,
-                            ),
-                            margin: EdgeInsets.only(bottom: 35.0)),
-                        new Container(
-                            child: new TextFormField(
-                              controller: newPasswordController,
-                              decoration: InputDecoration(
-                                  suffixIcon: new Icon(
-                                    Icons.vpn_key,
-                                    color: Colors.pink,
-                                  ),
-                                  labelText: Texts.NEW_PASSWORD,
-                                  labelStyle: TextStyle(fontSize: 18.0)),
-                              keyboardType: TextInputType.text,
-                              obscureText: true,
-                            ),
-                            margin: EdgeInsets.only(bottom: 35.0)),
-                      ],
-                    ))),
-          )
-        ],
+      content: new Container(
+        child: new Form(
+            child: new Theme(
+                data: new ThemeData(primarySwatch: Colors.pink),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new Container(
+                        child: new TextFormField(
+                          controller: oldPasswordController,
+                          decoration: InputDecoration(
+                              suffixIcon: new Icon(
+                                Icons.vpn_key,
+                                color: Colors.pink,
+                              ),
+                              labelText: Texts.OLD_PASSWORD,
+                              labelStyle: TextStyle(fontSize: 18.0)),
+                          keyboardType: TextInputType.text,
+                          obscureText: true,
+                        ),
+                        margin: EdgeInsets.only(bottom: 10.0)),
+                    new Container(
+                        child: new TextFormField(
+                          controller: newPasswordController,
+                          decoration: InputDecoration(
+                              suffixIcon: new Icon(
+                                Icons.vpn_key,
+                                color: Colors.pink,
+                              ),
+                              labelText: Texts.NEW_PASSWORD,
+                              labelStyle: TextStyle(fontSize: 18.0)),
+                          keyboardType: TextInputType.text,
+                          obscureText: true,
+                        ),
+                        margin: EdgeInsets.only(bottom: 10.0)),
+                  ],
+                ))),
       ),
       actions: <Widget>[
         new FlatButton(
