@@ -3,7 +3,7 @@
 ## App Demonstrating the use of Flutter and PHP.
 
 * App Logo Created Using [Logo Maker](http://logomakr.com)
-* For Hosting used [Hostinger](https://www.hostinger.in/)
+* For Hosting used [Hostinger](http://www.hostg.xyz/aff_c?offer_id=6&aff_id=1710)
 
 ## Built With
 
