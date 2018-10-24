@@ -14,11 +14,11 @@
 <div id="images" style="#images {
     white-space: nowrap;
 }">
-<img src="screenshots/Splash.png" alt="Splash" width="180" height="300">
-<img src="screenshots/Home.png" alt="Home" width="180" height="300">
-<img src="screenshots/Login.png" alt="Login" width="180" height="300">
-<img src="screenshots/Registration.png" alt="Registration" width="180" height="300">
-<img src="screenshots/Change_Password.png" alt="Change Password" width="180" height="300">
+<img src="screenshots/Splash.png" alt="Splash" width="150" height="300">
+<img src="screenshots/Home.png" alt="Home" width="150" height="300">
+<img src="screenshots/Login.png" alt="Login" width="150" height="300">
+<img src="screenshots/Registration.png" alt="Registration" width="150" height="300">
+<img src="screenshots/Change_Password.png" alt="Change Password" width="150" height="300">
 </div>
 <br/>
 
