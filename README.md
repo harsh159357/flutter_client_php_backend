@@ -3,7 +3,7 @@
 ## App Demonstrating the use of Flutter and PHP.
 
 * App Logo Created Using [Logo Maker](http://logomakr.com)
-* For Hosting used [Hostinger](http://www.hostg.xyz/aff_c?offer_id=6&aff_id=1710)
+* For Hosting used [000webhost](https://hafinse.000webhostapp.com)
 
 ## Built With
 
@@ -14,11 +14,11 @@
 <div id="images" style="#images {
     white-space: nowrap;
 }">
-<img src="screenshots/Splash.png" alt="Splash" width="150" height="250">
-<img src="screenshots/Home.png" alt="Home" width="150" height="250">
-<img src="screenshots/Login.png" alt="Login" width="150" height="250">
-<img src="screenshots/Registration.png" alt="Registration" width="150" height="250">
-<img src="screenshots/Change_Password.png" alt="Change Password" width="150" height="250">
+<img src="screenshots/Splash.png" alt="Splash" width="180" height="300">
+<img src="screenshots/Home.png" alt="Home" width="180" height="300">
+<img src="screenshots/Login.png" alt="Login" width="180" height="300">
+<img src="screenshots/Registration.png" alt="Registration" width="180" height="300">
+<img src="screenshots/Change_Password.png" alt="Change Password" width="180" height="300">
 </div>
 <br/>
 
@@ -27,7 +27,7 @@
 * Create a table inside your database using [FlutterClientPhpBackend.sql](https://github.com/harsh159357/flutter_client_php_backend/blob/master/phpbackend/FlutterClientPhpBackend.sql)
 * If you are using your own website just edit the following constant inside [constants.dart](https://github.com/harsh159357/flutter_client_php_backend/blob/master/lib/utils/constants.dart)
 
-      static const String API_BASE_URL = "http://hafinse.pe.hu";
+      static const String API_BASE_URL = "https://hafinse.000webhostapp.com";
 
 * Make sure to edit [DBOperations.php](https://github.com/harsh159357/flutter_client_php_backend/blob/master/phpbackend/DBOperations.php) and change following things -
 
@@ -36,7 +36,7 @@
     private $db = 'your_database';
     private $pass = 'your_password';
 
-### Not Interested in doing above steps just clone this repo and use it as it is already hosted on Free Web Host Hostinger [hafinse](https://hafinse.pe.hu)
+### Not Interested in doing above steps just clone this repo and use it as it is already hosted on Free Web Host 000webhost [hafinse](https://hafinse.000webhostapp.com)
 
 
 ## Features Implemented
