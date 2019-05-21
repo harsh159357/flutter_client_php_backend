@@ -55,15 +55,6 @@
 * Rest API Integration.
 * Store and Retrieve values from Shared Preference.
 
-#### Spread Some :heart:
-
-[![GitHub stars](https://img.shields.io/github/stars/aritraroy/ultimate-android-reference.svg?style=social&label=Star)](https://github.com/harsh159357/flutter_client_php_backend) [![GitHub forks](https://img.shields.io/github/forks/aritraroy/ultimate-android-reference.svg?style=social&label=Fork)](https://github.com/harsh159357/flutter_client_php_backend/fork) [![GitHub watchers](https://img.shields.io/github/watchers/aritraroy/ultimate-android-reference.svg?style=social&label=Watch)](https://github.com/harsh159357/flutter_client_php_backend)[![GitHub followers](https://img.shields.io/github/followers/aritraroy.svg?style=social&label=Follow)](https://github.com/harsh159357/)
-
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/harsh159357/flutter_client_php_backend/blob/master/License.txt)
-
-Check out the repo make a pull request, raise issues and give a star if it's helpful.
-
 ### Its Android CounterPart [Click Here](https://github.com/harsh159357/android_client_php_backend)
 
 ### If you are aware of [Postman](https://www.getpostman.com/) you can use [Postman Collection](https://www.getpostman.com/collections/80394d2fc7c2aed05cc5) for Rest API used in this repo
@@ -84,15 +75,20 @@ Check out the repo make a pull request, raise issues and give a star if it's hel
 ### :heart: Found this project useful?
 If you found this project useful, then please consider giving it a :star: on Github and sharing it with your friends via social media.
 
+### Last But not Least
+There are still some things which are pending in this project make a pull request to improve this project or suggest an idea
+to improve this project further by raising issues.
+
 ### Project Maintained By
 
-## Harsh Sharma
+# [Harsh Sharma](http://bit.ly/githarsh)
 
 Android Developer
 
 <a href="http://bit.ly/stackharsh"><img src="https://github.com/aritraroy/social-icons/blob/master/stackoverflow-icon.png?raw=true" width="60"></a>
 <a href="http://bit.ly/lnkdharsh"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="60"></a>
 <a href="http://bit.ly/harshfb"><img src="https://github.com/aritraroy/social-icons/blob/master/facebook-icon.png?raw=true" width="60"></a>
+
 License
 -------
 
