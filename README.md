@@ -5,6 +5,8 @@
 * App Logo Created Using [Logo Maker](http://logomakr.com)
 * For Hosting used [000webhost](https://hafinse.000webhostapp.com)
 
+##### Note if REST APIs used in the app are not working and you are getting following error https://imgur.com/a/AcbW5uh Then you have to use your own hosting(website) to test the app.
+
 ## Built With
 
 * [Flutter](https://flutter.io) - Cross Platform App Development Framework
