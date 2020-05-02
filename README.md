@@ -1,5 +1,7 @@
 # Flutter Client PHP Backend
 
+### App features will no longer work as https://hafinse.000webhostapp.com/ is deleted by the free hosting due to high usage. Do not create any issue related to that. If you are facing in problem in setting up feel free to mail me at harsh159357@gmail.com
+
 ## App Demonstrating the use of Flutter and PHP.
 
 * App Logo Created Using [Logo Maker](http://logomakr.com)
