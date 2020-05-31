@@ -1,13 +1,9 @@
 # Flutter Client PHP Backend
 
-### App features will no longer work as https://hafinse.000webhostapp.com/ is deleted by the free hosting due to high usage. Do not create any issue related to that. If you are facing in problem in setting up feel free to mail me at harsh159357@gmail.com
-
 ## App Demonstrating the use of Flutter and PHP.
 
 * App Logo Created Using [Logo Maker](http://logomakr.com)
-* For Hosting used [000webhost](https://hafinse.000webhostapp.com)
-
-##### Note if REST APIs used in the app are not working and you are getting following error https://imgur.com/a/AcbW5uh Then you have to use your own hosting(website) to test the app.
+* For Hosting used [bingedev](https://bingedev.com/)
 
 ## Built With
 
@@ -31,7 +27,7 @@
 * Create a table inside your database using [FlutterClientPhpBackend.sql](https://github.com/harsh159357/flutter_client_php_backend/blob/master/phpbackend/FlutterClientPhpBackend.sql)
 * If you are using your own website just edit the following constant inside [constants.dart](https://github.com/harsh159357/flutter_client_php_backend/blob/master/lib/utils/constants.dart)
 
-      static const String API_BASE_URL = "https://hafinse.000webhostapp.com";
+      static const String API_BASE_URL = "https://bingedev.com/";
 
 * Make sure to edit [DBOperations.php](https://github.com/harsh159357/flutter_client_php_backend/blob/master/phpbackend/DBOperations.php) and change following things -
 
@@ -40,7 +36,7 @@
     private $db = 'your_database';
     private $pass = 'your_password';
 
-### Not Interested in doing above steps just clone this repo and use it as it is already hosted on Free Web Host 000webhost [hafinse](https://hafinse.000webhostapp.com)
+### Not Interested in doing above steps just clone this repo and use it as it is already hosted [bingedev](https://bingedev.com/)
 
 
 ## Features Implemented
